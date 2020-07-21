@@ -15,10 +15,14 @@ public class Main {
             System.out.println(e.getMessage());
         }
         try {
-            dc1.withdrawMoney(600);
+            cc1.withdrawMoney(600);
         } catch (BankAcccountNegativeException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println(dc1.getBalance());
+        System.out.println(cc1.getBalance());
+        cc1.addMoney(500);
+        System.out.println("*************");
         System.out.println(dc1.getMAX_DEBIT());
         System.out.println(cc1.getMAX_DEBIT());
 

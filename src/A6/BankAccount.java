@@ -1,9 +1,9 @@
 package A6;
 
 public class BankAccount {
-    private double MAX_DEBIT;
-    private String customer;
-    private double balance;
+    protected double MAX_DEBIT;
+    protected String customer;
+    protected double balance;
 
     public BankAccount(String customer) {
         this.customer = customer;
@@ -19,7 +19,7 @@ public class BankAccount {
         if (canWithdraw(amount)) {
             balance -= amount;
         } else {
-            throw new BankAcccountNegativeException("Sorry, you are not eligible to withdraw " + amount + "€.");
+            throw new BankAcccountNegativeException("Sorry " + customer + ", you are not eligible to withdraw " + amount + "€.");
         }
     }
 
