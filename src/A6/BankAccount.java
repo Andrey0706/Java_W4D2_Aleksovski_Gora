@@ -18,13 +18,14 @@ public class BankAccount {
     public void withdrawMoney(double amount) throws BankAcccountNegativeException {
         if (canWithdraw(amount)) {
             balance -= amount;
+            System.out.println(customer + ", you withdrawed " + amount + "€");
         } else {
             throw new BankAcccountNegativeException("Sorry " + customer + ", you are not eligible to withdraw " + amount + "€.");
         }
     }
 
     protected boolean canWithdraw(double amount) {
-        return MAX_DEBIT < (balance - amount);
+        return MAX_DEBIT <= (balance - amount);
     }
 
     public String getCustomer() {
@@ -45,5 +46,9 @@ public class BankAccount {
 
     public double getMAX_DEBIT() {
         return MAX_DEBIT;
+    }
+
+    String getBalanceDetails() {
+        return customer + ", your balance is: " + balance + "€";
     }
 }

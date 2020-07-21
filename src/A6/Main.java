@@ -2,29 +2,15 @@ package A6;
 
 public class Main {
     public static void main(String[] args) {
-        DebitCardAccount dc1 = new DebitCardAccount("Masha Gessen");
-        CreditCardAccount cc1 = new CreditCardAccount("Anne Applebaum");
-        try {
-            dc1.withdrawMoney(3000);
-        } catch (BankAcccountNegativeException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            cc1.withdrawMoney(3000);
-        } catch (BankAcccountNegativeException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            cc1.withdrawMoney(600);
-        } catch (BankAcccountNegativeException e) {
-            System.out.println(e.getMessage());
-        }
-        System.out.println(dc1.getBalance());
-        System.out.println(cc1.getBalance());
-        cc1.addMoney(500);
-        System.out.println("*************");
-        System.out.println(dc1.getMAX_DEBIT());
-        System.out.println(cc1.getMAX_DEBIT());
-
+        Bank commerzialBank = new Bank("Commerzialbank Mattersburg");
+        commerzialBank.newCreditCardAccount("Masha Gessen");
+        commerzialBank.newDebitCardAccount("Anne Applebaum");
+        commerzialBank.withdrawMoney(1, 3000);
+        commerzialBank.withdrawMoney(2, 3000);
+        commerzialBank.balance(1);
+        commerzialBank.balance(2);
+        commerzialBank.withdrawMoney(1,600);
+        commerzialBank.addMoney(1,100);
+        commerzialBank.withdrawMoney(1,600);
     }
 }
